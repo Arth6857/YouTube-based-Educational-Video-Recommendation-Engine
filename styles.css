@@ -1,0 +1,115 @@
+/* pull in any additional overrides here */
+
+/* 2) Utility classes for showing/hiding loading & error */
+.loading,
+.error {
+  display: none;
+}
+
+.loading.show,
+.error.show {
+  display: block;
+}
+
+#video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  /* match your Tailwind rounded-lg */
+  /* no need for !important; this ID selector will override the width/height attributes */
+}
+
+#video-container {
+  position: relative;
+  box-shadow: 0 0 5px #cc0000;
+}
+
+#video-container .yt-mask {
+  position: absolute;
+  bottom: 0;
+  right: 4px;
+  width: 120px;
+  height: 35px;
+  background: rgba(0, 0, 0, 0);
+  z-index: 90;
+}
+
+#video-container .yt-top-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0);
+  z-index: 90;
+}
+
+#video-container .yt-top-mask.paused{
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#video-container .yt-top-mask button{
+  display: none;
+}
+#video-container .yt-top-mask.paused button{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#video-container .end-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: none;
+  flex-direction: column;
+  z-index: 90;
+}
+
+/* when we add .show it becomes a flex container */
+#video-container .end-overlay.show {
+  display: flex;
+}
+
+#video-container .end-overlay.block {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#video-container .end-overlay *{
+  display: none;
+}
+
+#video-container .end-overlay.block *{
+  display: block;
+}
+
+/* ✅ Styling for the ranking badge */
+.score-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #4caf50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ✅ Make sure video-card can use relative positioning for absolute badge */
+.video-card {
+  position: relative;  /* ✅ Required for the badge to position correctly */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
